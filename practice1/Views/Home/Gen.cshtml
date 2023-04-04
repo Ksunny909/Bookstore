@@ -1,0 +1,42 @@
+﻿
+@using practice1.Models
+@model GenreViewModel
+@addTagHelper *, SortApp
+@{
+    ViewBag.Title = "Все пользователи";
+}
+<table style="margin-left: 20% ">
+    <tr style="font-weight: bold">
+        <th>
+            <a asp-action="Gen" up="@Model.SortViewModel.Up"
+                    current="@Model.SortViewModel.Current" property="@Model.SortViewModel.NameSort">Название</a>
+        </th>
+        <td>Автор</td>
+        <th>
+            <a asp-action="Gen" up="@Model.SortViewModel.Up" current="@Model.SortViewModel.Current" property="@Model.SortViewModel.YearSort">
+                Год
+            </a>
+        </th>
+        <td>Жанр</td>
+        <td>Стойка</td>
+        <td>Кол-во</td>
+
+    </tr>
+    @foreach (var item in Model.Books)
+    {
+        <tr>
+            <td style="padding-right: 50px">@item.Name</td>
+            <td style="padding-right: 50px;">@item.Author</td>
+            <td style="padding-right: 50px;">@item.Year</td>
+            <td style="padding-right: 50px;">@item.Genre</td>
+            <td style="padding-right: 50px;">@item.Rack</td>
+            <td style="padding-right: 50px;">@item.Quantity</td>
+
+            <td>
+                <a asp-action="Details" asp-controller="Home" asp-route-id="@item.Id">Подробнее</a> |
+                <a asp-action="Edit" asp-controller="Home" asp-route-id="@item.Id">Изменить</a> |
+                <a asp-action="Delete" asp-controller="Home" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+    }
+</table>

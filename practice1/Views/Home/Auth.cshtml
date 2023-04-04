@@ -1,0 +1,35 @@
+﻿@*@model IEnumerable<practice1.Models.Book>*@
+@model practice1.Models.GenreViewModel
+@{
+    ViewBag.Title = "Все пользователи";
+}
+
+<form asp-controller="Home" asp-action="Auth">
+    <p>
+
+        <select asp-for="BookGenre" asp-items="Model.Genres"  style="font-size: 11pt; padding: 0px">
+            <option value="" >Все</option>
+        </select>
+
+        Автор: <input type="text" asp-for="SearchString" style="font-size: 11pt"/>
+        <input type="submit" value="Фильтр"  class="btn btn-default" style="font-size: 11pt; padding: 0px"/>
+    </p>
+</form>
+<table style="margin-left: 20% ">
+    <tr style="font-weight: bold"><td>Название</td><td>Автор</td><td>Жанр</td><td>Стойка</td><td>Кол-во</td><td>Цена</td></tr>
+    @foreach (var item in Model.Books){
+        <tr>
+            <td style="padding-right: 50px">@item.Name</td>
+            <td style="padding-right: 50px;">@item.Author</td>
+            <td style="padding-right: 50px;">@item.Genre</td>
+            <td style="padding-right: 50px;">@item.Rack</td>
+            <td style="padding-right: 50px;">@item.Quantity</td>
+            <td style="padding-right: 50px;">@item.Price</td>
+            <td>
+                <a asp-action="Details" asp-controller="Home" asp-route-id="@item.Id">Подробнее</a> |
+                <a asp-action="Edit" asp-controller="Home" asp-route-id="@item.Id">Изменить</a> |
+                <a asp-action="Delete" asp-controller="Home" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+     }
+</table>

@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewData["Title"] - practice1</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" />*@
+    <link rel="stylesheet" href="~/css/main.css" />
+
+</head>
+<body class="subpage">
+    <div id="page-wrapper">
+
+                @*<header>
+                    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                        <div class="container">
+
+                            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                                <ul class="navbar-nav flex-grow-1">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Главная</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Gen">Жанр</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Auth">Автор</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Create">Добавить</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                    </nav>
+                </header>*@
+                <section id="header">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <h1> Буквоед</h1>
+                                <!-- Logo -->
+                                <h1><a asp-controller="Home" asp-action="Index" id="logo">Буквоед</a></h1>
+
+                                <!-- Nav -->
+                                <nav id="nav">
+                                    <a asp-controller="Home" asp-action="Index">Главная</a>
+                                    <a asp-controller="Home" asp-action="Gen">Жанр</a>
+                                    <a asp-controller="Home" asp-action="Auth">Автор</a>
+                                    <a asp-controller="Home" asp-action="Create">Добавить</a>
+
+                                </nav>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+
+                <!--меню-->
+                @*<nav class="navbar navbar-inverse">
+                    <div class="container">
+                        <div>
+                            <ul class="nav navbar-nav">
+                                <li><a href="~/Home/Index" class="navbar-brand">Главная</a></li>
+                                <li><a href="~/Home/Create" class="navbar-brand">Добавить</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>*@
+                <section id="content">
+                    <div class="container">
+
+                        <!--основной контент-->
+                        @*<div class="container body-content">*@
+                        @RenderBody()
+
+
+                    </div>
+                </section>
+                @*<footer class="footer">
+                    <p>© 2022 - Буквоед</p>
+                </footer>*@
+                <div id="copyright">
+                    &copy; 2022 - Буквоед
+                </div>
+
+                <script src="~/lib/jquery/dist/jquery.min.js"></script>
+                <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+                <script src="~/js/site.js" asp-append-version="true"></script>
+                @RenderSection("Scripts", required: false)
+            </div>
+        </body>
+</html>
